@@ -28,7 +28,7 @@ listMap = [
 ]
 
 
-@app.route('/')
+@app.post('/')
 def gen_data():
     resp = {
         "beforeT": [
