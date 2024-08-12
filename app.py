@@ -30,27 +30,35 @@ listMap = [
 
 @app.route('/', methods=['GET', 'POST'])
 def gen_data():
-    resp = {
-        "beforeT": [
+    resp = [
+        {
+            "startPolylinePointIndex": 0,
+            "endPolylinePointIndex": 2,
+            "speed": random.choice(speed_values)
+        },
+        [
             {
                 "startPolylinePointIndex": 0,
+                "endPolylinePointIndex": 1,
+                "speed": random.choice(speed_values)
+            },
+            {
+                "startPolylinePointIndex": 1,
                 "endPolylinePointIndex": 2,
                 "speed": random.choice(speed_values)
             }
         ],
-        "afterT": [
-            {
-                "startPolylinePointIndex": 0,
-                "endPolylinePointIndex": 2,
-                "speed": random.choice(speed_values)
-            }
-        ]
-    }
+        {
+            "startPolylinePointIndex": 0,
+            "endPolylinePointIndex": 1,
+            "speed": random.choice(speed_values)
+        }
+    ]
     response = {
         "routes": [
             {
                 "travelAdvisory": {
-                    "speedReadingIntervals": resp
+                    "speedReadingIntervals": random.choice(resp)
                 }
             }
         ]
